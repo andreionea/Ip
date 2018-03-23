@@ -11,7 +11,7 @@ public enum Status {
     }
 
     public String toString() {
-        return this.toString();
+        return this.string;
     }
 
 }

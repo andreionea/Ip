@@ -5,7 +5,9 @@ public class History {
 
     private  Map<String,String> history;
     private static History instance = new History(); // create an object
-    private History(){} //constructor
+    private History(){
+        this.history=new HashMap<>();
+    } //constructor
     public static History getInstance(){  //get the only object available
         return instance;
     }
@@ -22,9 +24,10 @@ public class History {
         history.replace(id, status);
     }
 
-    public String getAllHistory() {
-        return "History{ "+
-                history.toString()
-                +"}";
+    @Override
+    public String toString() {
+        return "History{" +
+                "history=" + history +
+                '}';
     }
 }
