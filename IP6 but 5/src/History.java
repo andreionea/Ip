@@ -1,9 +1,11 @@
+import javafx.util.Pair;
+
 import java.util.*;
 
 
 public class History {
 
-    private  Map<String,String> history;
+    private  Map<String,List<String>> history;
     private static History instance = new History(); // create an object
     private History(){
         this.history=new HashMap<>();
@@ -13,15 +15,21 @@ public class History {
     }
 
     public String getStatus(String id){
-        return history.get(id);
+        return history.get(id).get(history.get(id).size());
     }
 
     public void addShipment(String id){
-        history.put(id, Status.IN_STORAGE.toString());
+        List<String> aux = new LinkedList<>();
+        aux.add(Status.IN_STORAGE.toString());
+
+        history.put(id,aux);
+//        history.put(id, new Pair<>(id,Status.IN_STORAGE.toString()));
     }
 
     public void changeStatus(String id, String status){
-        history.replace(id, status);
+        List<String> aux=history.get(id);
+        aux.add(status);
+        history.put(id, aux);
     }
 
     @Override
