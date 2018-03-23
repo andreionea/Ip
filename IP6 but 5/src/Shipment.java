@@ -10,7 +10,9 @@ public class Shipment {
     }
 
     public void changeStatus(Status status) {
+
         this.status = status.toString();
+        History.changeStatus(this.id,this.status);
     }
 
     public String getStatus() {
