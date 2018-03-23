@@ -29,12 +29,17 @@ public class Customer {
         return Name;
     }
 
-    public void Customer(){}
+    public void Customer(String id){
+        this.idCustomer=id;
+    }
 
     public void addShippment(String NumeProdus)
     {
-        String idulMeu = idCustomer;
+        Integer branza = (int)Math.random() * 10000;
+        String idulMeu = idCustomer + branza.toString();
 
         Shippment myShippment = new Shippment(idulMeu);
+        listaComenzi.add(myShippment);
+
     }
 }

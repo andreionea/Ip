@@ -1,11 +1,10 @@
 public class Main {
-    public static void main(String[] args) {
-        History history = History.getInstance();
 
-        System.out.println(history.toString());
-        Shipment shipment =new Shipment("234234a000sd");
-        System.out.println(history.toString());
-        shipment.changeStatus(Status.CURRIER_STORAGE);
-        System.out.println(history.toString());
+    public static void main(String args[]){
+        String numeProdus = "TV Samsung";
+        History myHistory = History.getInstace();
+        Customer client = new Customer("11");
+        client.addShippment(numeProdus);
+        myHistory.toString();
     }
 }
